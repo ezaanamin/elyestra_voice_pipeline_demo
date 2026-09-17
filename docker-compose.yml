@@ -1,0 +1,27 @@
+services:
+  # 1. Voice Microservice (FastAPI on Port 8001)
+  voice-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: elyestra-voice-service
+    ports:
+      - "8001:8001"
+    environment:
+      - KOKORO_VOICE=af_bella
+      - KOKORO_LANG=en-us
+      - KOKORO_SPEED=1.0
+    volumes:
+      - ./chats:/app/chats
+    restart: unless-stopped
+
+  # 2. Interactive CLI Demo (Simulated Real-Time Token Stream & Pipeline)
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: elyestra-voice-demo
+    command: ["python3", "demo.py"]
+    volumes:
+      - ./chats:/app/chats
+

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+chats/
+demo_chats/
+*.wav
+.env
+

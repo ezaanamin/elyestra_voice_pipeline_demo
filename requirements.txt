@@ -1,0 +1,17 @@
+# Elyestra Voice Pipeline Showcase Demo Dependencies
+# -------------------------------------------------
+
+# Core Microservice & Async Networking
+fastapi>=0.110.0
+uvicorn>=0.27.0
+requests>=2.31.0
+psutil>=5.9.0
+
+# Audio Processing & Waveform Generation
+numpy>=1.24.0
+soundfile>=0.12.0
+
+# Kokoro ONNX Inference Engine (Optional: needed for local hardware model inference)
+# When omitted, the demo runs in simulated high-fidelity mode with zero setup.
+# kokoro-onnx>=0.3.0
+
